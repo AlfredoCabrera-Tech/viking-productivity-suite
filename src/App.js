@@ -1,26 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 
+// COMPONENTS
+import TasksMain from './components/Tasks/TasksMain';
 import TimerMain from './components/Timer/TimerMain';
+import NotesMain from './components/Notes/NotesMain';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <TimerMain />
-      </header>
+      <TasksMain className="Tasks"/>
+      <TimerMain className="Timer" />
+      <NotesMain className="Notes" />
     </div>
   );
 }

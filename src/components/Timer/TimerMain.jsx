@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import Countdown from 'react-countdown';
-import TimerButton from '../TimerButton/TimerButton';
+import TimerButton from './TimerButton/TimerButton';
 
 
 export const TimerContext = React.createContext()
@@ -96,6 +96,7 @@ function TimerMain() {
   return (
     <TimerContext.Provider value={timerContextValue}>
       <div>
+        <p>{`The current mode is: ${timerMode}`}</p>
         <div>
           <Countdown
             date={Date.now() + number}
@@ -109,7 +110,6 @@ function TimerMain() {
         <TimerButton role={pauseTimer} name='Pause'/>
         <TimerButton role={stopTimer} name='Stop'/>
         <TimerButton role={resetCounter} name='Reset Counter'/>
-        <p>{`The current mode is: ${timerMode}`}</p>
         <p>{`You've done ${pomodoroCounter.current} pomodoros until now`}</p>
 
       </div>
