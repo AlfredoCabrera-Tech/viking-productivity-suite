@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import TimerHome from './components/Timer/TimerHome';
+import TimerMain from './components/Timer/TimerMain';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <TimerHome />
+        <TimerMain />
       </header>
     </div>
   );

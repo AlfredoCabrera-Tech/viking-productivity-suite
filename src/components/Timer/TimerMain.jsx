@@ -1,17 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import Countdown from 'react-countdown';
 import TimerButton from '../TimerButton/TimerButton';
-import TimerModes from '../TimerModes/TimerModes';
 
 
 export const TimerContext = React.createContext()
 
-function TimerHome() {
+function TimerMain() {
 
   /*================ useState =================== */
 
   const [timerMode, setTimerMode] = useState('pomodoro')
-  const [timerCompleted, setTimerCompleted] = useState(true)
   
   /*================ react-timer Renderer logic =================== */
   
@@ -39,21 +37,25 @@ function TimerHome() {
     }
     timerRef.current.start()
   }
+
   const pauseTimer = () => {
     timerRef.current.pause()
   }
+
   const stopTimer = () => {
     timerRef.current.stop()
+  }
+
+  const resetCounter = () => {
+    pomodoroCounter.current = 0
   }
   
   /*================ Handlers for Timer =================== */
 
   const handleStart = () => {
-   setTimerCompleted(false) 
   }
   
   const handleComplete = () => {
-    //setTimerCompleted(true)
     if(timerMode==='pomodoro' && (pomodoroCounter.current%4)===3 && pomodoroCounter.current!==0){
       setTimerMode('long-break')
     }
@@ -70,28 +72,21 @@ function TimerHome() {
     }
     
   }
-  const resetCounter = () => {
-   setTimerCompleted(true) 
-   pomodoroCounter.current = 0
-  }
-
-  //const status = timerRef.current.isCompleted()
 
   /*================ Number of Minutes for each Mode =================== */
 
   let number = 600000
 
   if (timerMode==='pomodoro') {
-    number=0.05*60000
+    number=25*60000
   } if (timerMode==='break') {
-    number=0.05*60000
+    number=5*60000
   } if (timerMode==='long-break') {
-    number=0.05*60000
+    number=15*60000
   }
 
   /*================ useContext value =================== */
   
-
 
   const timerContextValue = {
     playTimer,
@@ -100,27 +95,9 @@ function TimerHome() {
     timerMode,
     setTimerMode,
     pomodoroCounter,
-    setTimerCompleted,
-    //status
   }
   
-  /*================ useEffect value =================== */
 
-  /* useEffect(() => {  
-    if(timerCompleted && timerMode==='pomodoro'){
-      
-      if(pomodoroCounter.current>0 && (pomodoroCounter.current%4) === 0){
-        setTimerMode('long-break')
-      } if(pomodoroCounter.current>0 && (pomodoroCounter.current%4 !== 0)){
-        setTimerMode('break')
-      }
-    } if(timerCompleted && timerMode==='break'){
-      setTimerMode('pomodoro')
-    } if(timerCompleted && timerMode==='long-break'){
-      setTimerMode('pomodoro')
-    }
-  }, [timerCompleted,pomodoroCounter,timerMode])
- */
   return (
     <TimerContext.Provider value={timerContextValue}>
       <div>
@@ -138,7 +115,7 @@ function TimerHome() {
         <TimerButton role={pauseTimer} name='Pause'/>
         <TimerButton role={stopTimer} name='Stop'/>
         <TimerButton role={resetCounter} name='Reset Counter'/>
-        <TimerModes />
+        <p>{`The current mode is: ${timerMode}`}</p>
         <p>{`You've done ${pomodoroCounter.current} pomodoros until now`}</p>
 
       
@@ -147,4 +124,4 @@ function TimerHome() {
   )
 }
 
-export default TimerHome
+export default TimerMain
