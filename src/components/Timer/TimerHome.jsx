@@ -54,10 +54,10 @@ function TimerHome() {
   
   const handleComplete = () => {
     //setTimerCompleted(true)
-    if(timerMode==='pomodoro' && (pomodoroCounter.current%4)===0 && pomodoroCounter.current!==0){
+    if(timerMode==='pomodoro' && (pomodoroCounter.current%4)===3 && pomodoroCounter.current!==0){
       setTimerMode('long-break')
     }
-    if((timerMode==='pomodoro' && (pomodoroCounter.current%3)!==0) || pomodoroCounter.current===0){
+    if((timerMode==='pomodoro' && (pomodoroCounter.current%4)!==3) || pomodoroCounter.current===0){
       setTimerMode('break')
     }
     if(timerMode==='break'){
