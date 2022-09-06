@@ -7,7 +7,7 @@ export const TimerContext = React.createContext()
 
 function TimerMain() {
 
-  /*================ useState =================== */
+  /*================ useState Timer Mode =================== */
 
   const [timerMode, setTimerMode] = useState('pomodoro')
   
@@ -16,20 +16,19 @@ function TimerMain() {
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      return <span> Listo, marico!</span>;
+      return <span>Timer completed</span>;
     } else {
       // Render a countdown
       return <span>{hours}:{minutes}:{seconds}</span>;
     }
   };
   
-  /*================ useRef for Timer element =================== */
+  /*================ useRef for Timer Element and Pomodoro Counter =================== */
   
   const timerRef = useRef()
   const pomodoroCounter = useRef(0)
 
   /*================ Logic for Timer Buttons =================== */
-  
   
   const playTimer = (e) => {
     if(pomodoroCounter.current===0 && e.target.clicked){
@@ -50,10 +49,7 @@ function TimerMain() {
     pomodoroCounter.current = 0
   }
   
-  /*================ Handlers for Timer =================== */
-
-  const handleStart = () => {
-  }
+  /*================ Logic for timerMode changing automagically =================== */
   
   const handleComplete = () => {
     if(timerMode==='pomodoro' && (pomodoroCounter.current%4)===3 && pomodoroCounter.current!==0){
@@ -86,7 +82,6 @@ function TimerMain() {
   }
 
   /*================ useContext value =================== */
-  
 
   const timerContextValue = {
     playTimer,
@@ -105,7 +100,6 @@ function TimerMain() {
           <Countdown
             date={Date.now() + number}
             renderer={renderer}
-            onStart={handleStart}
             onComplete={handleComplete}
             autoStart={false}
             ref={timerRef}
@@ -118,7 +112,6 @@ function TimerMain() {
         <p>{`The current mode is: ${timerMode}`}</p>
         <p>{`You've done ${pomodoroCounter.current} pomodoros until now`}</p>
 
-      
       </div>
     </TimerContext.Provider>
   )
