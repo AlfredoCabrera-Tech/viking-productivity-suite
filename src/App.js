@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 // COMPONENTS
 import TasksMain from './components/Tasks/TasksMain';

@@ -1,0 +1,19 @@
+.task-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  &>input{
+    margin-top: 0.5rem;
+  }
+
+  &>label{
+    margin-top: 1rem;
+  }
+  
+  &>.priority-label{
+    margin: 1rem 0;
+
+  }
+}
