@@ -30,6 +30,10 @@ function TasksList(props) {
             <div className={`task`} key={index} id={`task-${index}`} >
               <h2>{task.title}</h2>
               <p>{task.body}</p>
+              <div>
+                <input type="checkbox" name="priority" id={`task-${index}-priority`} checked={task.priority} readOnly/>
+                <label htmlFor={`task-${index}-priority`}>Priority?</label>
+              </div>
               <button onClick={editTask}>Edit</button>
               <button onClick={deleteTask}>Delete</button>
             </div>
