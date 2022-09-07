@@ -1,10 +1,12 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 function TasksList(props) {
 
   const {
+    mode,
     setMode,
-    tasks
+    tasks,
+    setTasks
   } = props
 
   /* ====== TASKS BEHAVIOR ======= */
@@ -15,19 +17,32 @@ function TasksList(props) {
   }
   const deleteTask = (e) => {
     //delete task
-    console.log(e.target.value)
-    console.log('Item with ID:-id- has been deleted')
+    setMode('delete')
+    console.log('Item with ID: '+ e.currentTarget.parentNode.id +' has been deleted')
+    localStorage.removeItem(e.currentTarget.parentNode.id)
+    setTimeout(() => {
+      setMode('')
+    }, 1000);
   }
 
+  let tasksArray
 
+  useEffect(() => {
+    if(mode==='' && localStorage!==null){
+      let keys = Object.keys(localStorage)
+      tasksArray = keys.map(key => JSON.parse(localStorage.getItem(key)))
+      setTasks([...tasksArray])
+      console.log(tasksArray) 
+   }
+  }, [mode])
 
   return (
     <div>
       <p>TasksList</p>
       <section className='tasks'>
-        {tasks.map((task, index) => {
+        {tasks.sort((a,b) => b-a).map((task, index) => {
           return (
-            <div className={`task`} key={index} id={`task-${index}`} >
+            <div className={`task`} key={index} id={`task-${task.id}`} >
               <h2>{task.title}</h2>
               <p>{task.body}</p>
               <div>
