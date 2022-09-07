@@ -1,0 +1,10 @@
+.task{
+  border: 2px solid black;
+  width: 20rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+
+  &>p{
+    padding: 0 1rem;
+  }
+}

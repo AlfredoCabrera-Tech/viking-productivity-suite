@@ -23,6 +23,20 @@ function TasksMain() {
     } 
   }
 
+    /* =========== Tasks Array =========== */
+
+    const tasksArr = [
+      {
+        title: 'Hacer el pollo',
+        body: 'Empanizar el pollo y prepararlo para el almuerzo de mañana'
+      },
+      {
+        title: 'Stop it with the dulce',
+        body: 'Deja de ser un maldito gordo asqueroso por una puta vez en tu vida, maldita bola de mierda'
+      }
+    ]
+
+
   return (
     <div>
       <p>TasksInput</p>
@@ -53,6 +67,7 @@ function TasksMain() {
       <TasksList
        setMode={setMode}
        mode={mode}
+       tasks={tasksArr}
       />
     </div>
   )

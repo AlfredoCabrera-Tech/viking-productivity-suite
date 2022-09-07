@@ -4,23 +4,38 @@ function TasksList(props) {
 
   const {
     setMode,
+    tasks
   } = props
 
-  const editTask = () => {
+  /* ====== TASKS BEHAVIOR ======= */
+
+  const editTask = (e) => {
     setMode('edit')
-    console.log('Entered Edit Mode')
+    console.log('Entered Edit Mode for ' + e.currentTarget.parentNode.id)
   }
   const deleteTask = (e) => {
     //delete task
-    console.log(e.target.id)
+    console.log(e.target.value)
     console.log('Item with ID:-id- has been deleted')
   }
+
+
 
   return (
     <div>
       <p>TasksList</p>
-      {<button onClick={editTask}>Edit</button>}
-      {<button onClick={deleteTask}>Delete</button>}
+      <section className='tasks'>
+        {tasks.map((task, index) => {
+          return (
+            <div className={`task`} key={index} id={`task-${index}`} >
+              <h2>{task.title}</h2>
+              <p>{task.body}</p>
+              <button onClick={editTask}>Edit</button>
+              <button onClick={deleteTask}>Delete</button>
+            </div>
+          )
+        })}
+      </section>
     </div>
   )
 }
