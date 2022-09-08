@@ -28,7 +28,7 @@ function TimerMain() {
       return <span>Timer completed</span>;
     } else {
       // Render a countdown
-      return <span>{hours}:{minutes}:{seconds}</span>;
+      return <h3 className='timer-counter'>{hours}:{minutes}:{seconds}</h3>;
     }
   };
   
@@ -115,12 +115,15 @@ function TimerMain() {
             ref={timerRef}
           />
         </div>
-        <TimerButton role={playTimer} name='Play'/>
-        <TimerButton role={pauseTimer} name='Pause'/>
-        <TimerButton role={stopTimer} name='Stop'/>
-        <TimerButton role={resetCounter} name='Reset Counter'/>
+        <div className="timer-btn--container">
+          <TimerButton role={playTimer} name='Play' icon='FaPlay'/>
+          <TimerButton role={pauseTimer} name='Pause' icon='FaPause'/>
+          <TimerButton role={stopTimer} name='Stop' icon='FaStop'/>
+        </div>
         <p>{`You've done ${pomodoroCounter.current} pomodoros until now`}</p>
-        <button onClick={displayNotes}>{notesOn ? "Hide Notes" : "Display Notes"}</button>
+        <TimerButton role={resetCounter} name='Reset Counter' icon='FaTimes'/>
+        <br />
+        <button className={`btn btn-display`} onClick={displayNotes}>{notesOn ? "Hide Notes" : "Display Notes"}</button>
       </div>
     </TimerContext.Provider>
   )

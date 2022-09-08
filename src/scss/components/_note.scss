@@ -1,8 +1,10 @@
 .note{
   border: 2px solid black;
+  border-radius: 5px;
   width: 15rem;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 
   &:first-of-type{
     margin-top: 1.5rem;

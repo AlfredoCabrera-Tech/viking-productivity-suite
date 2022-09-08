@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react'
+import { FaTrashAlt } from 'react-icons/fa'
 
 function NotesList(props) {
   
@@ -11,10 +12,6 @@ function NotesList(props) {
 
   /* ====== NOTES BEHAVIOR ======= */
 
-  const editNote = (e) => {
-    setMode('edit')
-    console.log('Entered Edit Mode for ' + e.currentTarget.parentNode.id)
-  }
   const deleteNote = (e) => {
     //delete note
     setMode('delete')
@@ -45,11 +42,9 @@ function NotesList(props) {
               <h2>{note.title}</h2>
               <p>{note.body}</p>
               {note.priority && <p className="priority-note">IMPORTANT!</p> }
-              <button 
-                onClick={editNote}>Edit</button>
-              <button 
+              <button className={`btn btn-Delete`}
                 onClick={deleteNote}
-              >Delete
+              ><FaTrashAlt /> Delete
               </button>
             </div>
           )

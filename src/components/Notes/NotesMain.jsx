@@ -5,6 +5,7 @@ import NotesList from './NotesList/NotesList'
 
 //CONTEXT
 import { GlobalContext } from '../../App'
+import { FaPlus } from 'react-icons/fa'
 
 function NotesMain() {
 
@@ -84,7 +85,7 @@ function NotesMain() {
     <>
       {notesOn && 
       <div>
-        <h2>Notes</h2>
+        <h2 className='notes-component__title'>Notes</h2>
         {(mode==='new' || mode==='edit') && <div>
           <form className='note-form'>
             <label 
@@ -119,12 +120,12 @@ function NotesMain() {
               </label>
             </div>
           </form>
-          <button onClick={saveNewNote}>Save Note</button>
-          <button onClick={cancel}>Cancel</button>
+          <button className={`btn btn-Save`} onClick={saveNewNote}>Save Note</button>
+          <button className={`btn btn-Cancel`} onClick={cancel}>Cancel</button>
         </div>}
         {mode!=='new' && mode!=='edit' && <button 
-          onClick={createNewNote} >
-          New Note
+          onClick={createNewNote} className='new-note__btn btn btn-New'>
+          <FaPlus /> New Note
         </button>}
         <NotesList
         setMode={setMode}

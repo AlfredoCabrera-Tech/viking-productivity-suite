@@ -24,13 +24,15 @@ function App() {
   return (
     <GlobalContext.Provider value={globalContextValue}>
       <div className="App">
-        <section className='tasks--area'>
-          <TasksMain className="Tasks"/>
-        </section>
-        <section className='timer-notes--area'>
-          <TimerMain className="Timer" />
-          <NotesMain className="Notes" />
-        </section>
+          <div id='T1'>
+            <TasksMain className="Tasks" />
+          </div>
+          <div id='T2'>
+            <TimerMain className="Timer" id="Timer-component"/>
+          </div>
+          <div id='T3'>
+            <NotesMain className="Notes" />
+          </div>
       </div>
     </GlobalContext.Provider>
   );

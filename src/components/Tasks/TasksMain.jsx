@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {FaPlus} from 'react-icons/fa'
 
 // COMPONENTS
 import TasksList from './TasksList/TasksList'
@@ -108,14 +109,25 @@ function TasksMain() {
           </div>
         </form>
         <div className="btn-container">
-          <button onClick={saveNewTask}>Save Task</button>
-          <button onClick={cancel}>Cancel</button>
+          <button
+           onClick={saveNewTask}
+           className={`btn btn-Save`}
+          >
+            Save Task
+          </button>
+          <button
+           onClick={cancel}
+           className={`btn btn-Cancel`}
+          >
+            Cancel
+          </button>
         </div>
       </div>}
       {mode!=='new' && mode!=='edit' && <div className="btn-container">
         <button
+          className={`btn btn-New`}
           onClick={createNewTask} >
-        New Task
+        <FaPlus /> New Task
       </button>
       </div>}
       <TasksList

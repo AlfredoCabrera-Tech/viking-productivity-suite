@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {FaEdit, FaCheck, FaTrashAlt} from 'react-icons/fa'
 
 function TasksList(props) {
 
@@ -13,10 +14,6 @@ function TasksList(props) {
 
   /* ====== TASKS BEHAVIOR ======= */
 
-  const editTask = (e) => {
-    setMode('edit')
-    console.log('Entered Edit Mode for ' + e.currentTarget.parentNode.id)
-  }
   const deleteTask = (e) => {
     //delete task
     setMode('delete')
@@ -55,7 +52,7 @@ function TasksList(props) {
     <div>
       <p>You have accomplished {taskCounter} tasks today!</p>
       <div className="btn-container">
-        <button onClick={resetCounter}>Reset Task Count</button>
+        <button className={`btn btn-Reset`} onClick={resetCounter}>Reset Task Count</button>
       </div>
       <section className='tasks'>
         {tasks.sort((a,b) => b-a).map((task, index) => {
@@ -64,9 +61,8 @@ function TasksList(props) {
               <h2>{task.title}</h2>
               <p>{task.body}</p>
               {task.priority && <p className="priority-task">IMPORTANT!</p> }
-              <button onClick={editTask}>Edit</button>
-              <button onClick={doneTask}>Done</button>
-              <button onClick={deleteTask}>Delete</button>
+              <button className={`btn btn-Done`} onClick={doneTask}><FaCheck/> Done</button>
+              <button className={`btn btn-Delete`} onClick={deleteTask}><FaTrashAlt/> Delete</button>
             </div>
           )
         })}
