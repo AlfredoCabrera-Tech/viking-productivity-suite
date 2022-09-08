@@ -42,7 +42,7 @@ function NotesList(props) {
       <section className='notes'>
         {notes.sort((a,b) => b-a).map((note, index) => {
           return (
-            <div className={`note`} key={index} id={`note-${note.id}`} >
+            <div className={`note`} key={index} id={`note-${note.id}`} data-priority={note.priority} >
               <h2>{note.title}</h2>
               <p>{note.body}</p>
               <div>

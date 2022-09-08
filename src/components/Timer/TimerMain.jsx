@@ -1,11 +1,20 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import Countdown from 'react-countdown';
+
+//COMPONENTS
 import TimerButton from './TimerButton/TimerButton';
 
+//CONTEXT
+import { GlobalContext } from '../../App';
 
 export const TimerContext = React.createContext()
 
 function TimerMain() {
+
+  const {
+    notesOn,
+    displayNotes
+  } = useContext(GlobalContext)
 
   /*================ useState Timer Mode =================== */
 
@@ -80,7 +89,6 @@ function TimerMain() {
   } if (timerMode==='long-break') {
     number=15*60000
   }
-
   /*================ useContext value =================== */
 
   const timerContextValue = {
@@ -111,7 +119,7 @@ function TimerMain() {
         <TimerButton role={stopTimer} name='Stop'/>
         <TimerButton role={resetCounter} name='Reset Counter'/>
         <p>{`You've done ${pomodoroCounter.current} pomodoros until now`}</p>
-
+        <button onClick={displayNotes}>{notesOn ? "Hide Notes" : "Display Notes"}</button>
       </div>
     </TimerContext.Provider>
   )
