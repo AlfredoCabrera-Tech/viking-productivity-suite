@@ -22,7 +22,7 @@ function TasksList(props) {
     localStorage.removeItem(e.currentTarget.parentNode.id)
     setTimeout(() => {
       setMode('')
-    }, 1000);
+    }, 0);
   }
 
   let tasksArray
