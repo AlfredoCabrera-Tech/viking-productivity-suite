@@ -1,12 +1,27 @@
 @use './scss/abstracts/forward';
 
 .App {
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  //padding: 0 3rem;
-
+  display: grid;
+  grid-template-columns: minmax(250px,30%) 1fr;
+  grid-template-areas: 
+  "tasks timer-notes"
+  ;
+  padding: 10rem 5rem;
+  
   &>*{
     //outline: 1px solid red;
   }
+
+  .tasks--area{
+    grid-area: "tasks";
+  }
+  
+  .timer-notes--area{
+    grid-area: "timer-notes";
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 5vw;
+  }
+
 }

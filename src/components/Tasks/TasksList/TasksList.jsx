@@ -54,7 +54,9 @@ function TasksList(props) {
   return (
     <div>
       <p>You have accomplished {taskCounter} tasks today!</p>
-      <button onClick={resetCounter}>Reset Task Count</button>
+      <div className="btn-container">
+        <button onClick={resetCounter}>Reset Task Count</button>
+      </div>
       <section className='tasks'>
         {tasks.sort((a,b) => b-a).map((task, index) => {
           return (

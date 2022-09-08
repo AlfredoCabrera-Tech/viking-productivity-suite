@@ -72,7 +72,7 @@ function TasksMain() {
 
   return (
     <div>
-      <h2>Tasks Tracker</h2>
+      <h2 className='tasks-component__title'>Tasks Tracker</h2>
       {(mode==='new' || mode==='edit') && <div>
         <form className='task-form'>
           <label 
@@ -107,13 +107,17 @@ function TasksMain() {
             </label>
           </div>
         </form>
-        <button onClick={saveNewTask}>Save Task</button>
-        <button onClick={cancel}>Cancel</button>
+        <div className="btn-container">
+          <button onClick={saveNewTask}>Save Task</button>
+          <button onClick={cancel}>Cancel</button>
+        </div>
       </div>}
-      {mode!=='new' && mode!=='edit' && <button 
-        onClick={createNewTask} >
+      {mode!=='new' && mode!=='edit' && <div className="btn-container">
+        <button
+          onClick={createNewTask} >
         New Task
-      </button>}
+      </button>
+      </div>}
       <TasksList
        setMode={setMode}
        mode={mode}

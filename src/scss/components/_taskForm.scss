@@ -1,3 +1,7 @@
+.tasks-component__title, .btn-container{
+  padding-left: 5%;
+}
+
 .task-form{
   display: flex;
   flex-direction: column;
@@ -14,6 +18,5 @@
   
   &>.priority-label{
     margin: 1rem 0;
-
   }
 }
