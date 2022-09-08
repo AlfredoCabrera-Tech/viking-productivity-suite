@@ -1,12 +1,8 @@
-.task{
+.note{
   border: 2px solid black;
   width: 15rem;
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
-
-  &:first-of-type{
-    margin-top: 1.5rem;
-  }
 
   &>p{
     padding: 0 1rem;

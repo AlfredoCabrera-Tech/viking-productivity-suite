@@ -9,8 +9,9 @@ function TasksMain() {
     title: '',
     body: '',
     priority: false,
+    type: 'task'
   }
-
+  
   /* ======== useState for mode (edit, new, or other) ========= */
   const [mode, setMode] = useState('')
   const [tasksArr, setTasksArr] = useState([])
@@ -19,6 +20,7 @@ function TasksMain() {
     title: '',
     body: '',
     priority: false,
+    type: 'task'
   })
 
   /* ======== Buttons behaviour (create mode/save/edit/delete) =========== */

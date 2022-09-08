@@ -1,6 +1,8 @@
-import React,{useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 
 function TasksList(props) {
+
+  const [taskCounter, setTaskCounter] = useState(0)
 
   const {
     mode,
@@ -24,13 +26,26 @@ function TasksList(props) {
       setMode('')
     }, 0);
   }
+  const doneTask = (e) => {
+    setMode('delete')
+    console.log('Item with ID: '+ e.currentTarget.parentNode.id +' has been deleted')
+    localStorage.removeItem(e.currentTarget.parentNode.id)
+    setTimeout(() => {
+      setMode('')
+    }, 0);
+    setTaskCounter(prev => prev+1)
+  }
+
+  const resetCounter = () => {
+    setTaskCounter(0)
+  }
 
   let tasksArray
 
   useEffect(() => {
     if(mode==='' && localStorage!==null){
       let keys = Object.keys(localStorage)
-      tasksArray = keys.map(key => JSON.parse(localStorage.getItem(key)))
+      tasksArray = keys.map(key => JSON.parse(localStorage.getItem(key))).filter(task => task.type==='task')
       setTasks([...tasksArray])
       console.log(tasksArray) 
    }
@@ -39,6 +54,8 @@ function TasksList(props) {
   return (
     <div>
       <p>TasksList</p>
+      <p>You have accomplished {taskCounter} tasks today!</p>
+      <button onClick={resetCounter}>Reset Task Count</button>
       <section className='tasks'>
         {tasks.sort((a,b) => b-a).map((task, index) => {
           return (
@@ -50,6 +67,7 @@ function TasksList(props) {
                 <label htmlFor={`task-${index}-priority`}>Priority?</label>
               </div>
               <button onClick={editTask}>Edit</button>
+              <button onClick={doneTask}>Done</button>
               <button onClick={deleteTask}>Delete</button>
             </div>
           )
