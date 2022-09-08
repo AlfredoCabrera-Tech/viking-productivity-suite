@@ -104,7 +104,8 @@ function TimerMain() {
   return (
     <TimerContext.Provider value={timerContextValue}>
       <div>
-        <p>{`The current mode is: ${timerMode}`}</p>
+        <h2>Pomodoro Timer</h2>
+        <p>The current mode is: <b>{timerMode}</b></p>
         <div>
           <Countdown
             date={Date.now() + number}

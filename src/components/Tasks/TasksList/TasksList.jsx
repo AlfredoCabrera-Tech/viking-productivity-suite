@@ -53,19 +53,15 @@ function TasksList(props) {
 
   return (
     <div>
-      <p>TasksList</p>
       <p>You have accomplished {taskCounter} tasks today!</p>
       <button onClick={resetCounter}>Reset Task Count</button>
       <section className='tasks'>
         {tasks.sort((a,b) => b-a).map((task, index) => {
           return (
-            <div className={`task`} key={index} id={`task-${task.id}`} >
+            <div className={`task`} key={index} id={`task-${task.id}`} data-priority={task.priority} >
               <h2>{task.title}</h2>
               <p>{task.body}</p>
-              <div>
-                <input type="checkbox" name="priority" id={`task-${index}-priority`} checked={task.priority} readOnly/>
-                <label htmlFor={`task-${index}-priority`}>Priority?</label>
-              </div>
+              {task.priority && <p className="priority-task">IMPORTANT!</p> }
               <button onClick={editTask}>Edit</button>
               <button onClick={doneTask}>Done</button>
               <button onClick={deleteTask}>Delete</button>

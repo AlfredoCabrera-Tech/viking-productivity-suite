@@ -11,7 +11,16 @@
   &>p{
     padding: 0 1rem;
   }
+
   &>div{
     padding-bottom: 1rem;
+  }
+
+  &[data-priority='true']{
+    border: 2px solid red;
+  }
+
+  & .priority-task {
+    font-weight: bold;
   }
 }

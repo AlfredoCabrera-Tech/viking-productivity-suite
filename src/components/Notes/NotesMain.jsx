@@ -84,7 +84,7 @@ function NotesMain() {
     <>
       {notesOn && 
       <div>
-        <p>NotesInput</p>
+        <h2>Notes</h2>
         {(mode==='new' || mode==='edit') && <div>
           <form className='note-form'>
             <label 
@@ -126,7 +126,6 @@ function NotesMain() {
           onClick={createNewNote} >
           New Note
         </button>}
-        <p>current mode is: {mode}</p>
         <NotesList
         setMode={setMode}
         mode={mode}

@@ -38,23 +38,13 @@ function NotesList(props) {
 
   return (
     <div>
-      <p>NotesList</p>
       <section className='notes'>
         {notes.sort((a,b) => b-a).map((note, index) => {
           return (
             <div className={`note`} key={index} id={`note-${note.id}`} data-priority={note.priority} >
               <h2>{note.title}</h2>
               <p>{note.body}</p>
-              <div>
-                <input 
-                  type="checkbox" 
-                  name="priority" 
-                  id={`note-${index}-priority`} 
-                  checked={note.priority} 
-                  readOnly/>
-                <label 
-                  htmlFor={`note-${index}-priority`}>Priority?</label>
-              </div>
+              {note.priority && <p className="priority-note">IMPORTANT!</p> }
               <button 
                 onClick={editNote}>Edit</button>
               <button 

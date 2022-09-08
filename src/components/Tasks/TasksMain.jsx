@@ -70,32 +70,9 @@ function TasksMain() {
     }
   }
 
-  /* =========== Tasks Array =========== */
-
- /*  const tasksArr = [
-       {
-        title: 'Hacer el pollo',
-        body: 'Empanizar el pollo y prepararlo para el almuerzo de mañana'
-      },
-      {
-        title: 'Stop it with the dulce',
-        body: 'Deja de ser un maldito gordo asqueroso por una puta vez en tu vida, maldita bola de mierda'
-      } 
-  ] */
-
-  /* useEffect(() => {
-    if(mode==='' && localStorage!==null){
-      let keys = Object.keys(localStorage)
-      let tasksArray = keys.map(key => JSON.parse(localStorage.getItem(key)))
-      setTasksArr([...tasksArray])
-      console.log(tasksArray) 
-   }
-    return
-  }, [mode]) */
-
   return (
     <div>
-      <p>TasksInput</p>
+      <h2>Tasks Tracker</h2>
       {(mode==='new' || mode==='edit') && <div>
         <form className='task-form'>
           <label 
@@ -137,7 +114,6 @@ function TasksMain() {
         onClick={createNewTask} >
         New Task
       </button>}
-      <p>current mode is: {mode}</p>
       <TasksList
        setMode={setMode}
        mode={mode}
