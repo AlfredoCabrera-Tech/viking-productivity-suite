@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from 'react'
-import Countdown from 'react-countdown';
+import Countdown, {zeroPad} from 'react-countdown';
 import classNames from 'classnames'
 import tone from '../../tone.mp3'
 
@@ -8,8 +8,6 @@ import TimerButton from './TimerButton/TimerButton';
 
 //CONTEXT
 import { GlobalContext } from '../../App';
-
-export const TimerContext = React.createContext()
 
 function TimerMain() {
 
@@ -44,7 +42,7 @@ function TimerMain() {
       return <span>Timer completed</span>;
     } else {
       // Render a countdown
-      return <h3 className={timerClasses}>{hours}:{minutes}:{seconds}</h3>;
+      return <h3 className={timerClasses}>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</h3>;
     }
   };
   
@@ -115,19 +113,8 @@ function TimerMain() {
   } if (timerMode==='Long-break') {
     number=15*60000
   }
-  /*================ useContext value =================== */
-
-  const timerContextValue = {
-    playTimer,
-    pauseTimer,
-    stopTimer,
-    timerMode,
-    setTimerMode,
-    pomodoroCounter,
-  }
 
   return (
-    <TimerContext.Provider value={timerContextValue}>
       <div>
         <h2 className='timer-component__title'>Pomodoro Timer</h2>
         <p>The current mode is: <b className={modeClasses}>{timerMode}</b></p>
@@ -150,7 +137,6 @@ function TimerMain() {
         <br />
         <button className={`btn btn-display`} onClick={displayNotes}>{notesOn ? "Hide Notes" : "Display Notes"}</button>
       </div>
-    </TimerContext.Provider>
   )
 }
 

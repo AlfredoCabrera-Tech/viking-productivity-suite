@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {FaEdit, FaCheck, FaTrashAlt} from 'react-icons/fa'
+import {FaCheck, FaTrashAlt} from 'react-icons/fa'
 
 function TasksList(props) {
 
@@ -55,7 +55,7 @@ function TasksList(props) {
         <button className={`btn btn-Reset`} onClick={resetCounter}>Reset Task Count</button>
       </div>
       <section className='tasks'>
-        {tasks.sort((a,b) => b-a).map((task, index) => {
+        {tasks.sort((a,b) => a-b).map((task, index) => {
           return (
             <div className={`task`} key={index} id={`task-${task.id}`} data-priority={task.priority} >
               <h2>{task.title}</h2>
