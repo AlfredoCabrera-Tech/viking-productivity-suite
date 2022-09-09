@@ -1,4 +1,5 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
 
 .task{
   border: 2px solid $accent-blue;
@@ -7,6 +8,8 @@
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  box-shadow: $shadow-dark;
+
 
   &:first-of-type{
     margin-top: 1.5rem;

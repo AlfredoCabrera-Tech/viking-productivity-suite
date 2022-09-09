@@ -1,4 +1,5 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
 
 .notes-component__title{
   color: $red;
@@ -13,10 +14,18 @@
   &>input,& textarea{
     margin-top: 0.5rem;
     border-radius: 5px;
-    padding: 0.15rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     font: inherit;
     font-size: 1rem;
     background-color: $secondary-light;
+    border: none;
+    box-shadow: $shadow-light;
+
+
+
+    &:focus{
+      outline: 2px solid $accent-blue;
+    }
   }
   
   & label{

@@ -1,7 +1,9 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
 
 .timer-counter, .timer-btn--container{
   text-align: center;
+  
 }
 
 .timer-component__title{

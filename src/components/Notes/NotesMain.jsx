@@ -111,10 +111,10 @@ function NotesMain() {
               <input 
                 type="checkbox" 
                 name="priority" 
-                id="priority"
+                id="note-priority"
                 onChange={handleChange} />
               <label 
-                htmlFor="priority">
+                htmlFor="note-priority">
                 High Priority?
               </label>
             </div>
