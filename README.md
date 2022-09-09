@@ -2,6 +2,8 @@
 
 This is an app designed for productivity. An excellent tool for students, teachers, and anyone interested in staying focused on the task at hand whilst keeping track of the work of the day.
 
+**Live site URL:** https://viking-productivity-suite.netlify.app/
+
 ![App Screenshot](/src/App%20Screenshot.png)
 
 ## Why Was This App Made
