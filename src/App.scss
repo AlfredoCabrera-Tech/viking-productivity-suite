@@ -1,22 +1,27 @@
 @use './scss/abstracts/forward';
+@use './scss/abstracts/colors' as *;
+
+h1{
+  text-align: center;
+  &:first-of-type{
+    padding-top: 3rem;
+  }
+}
 
 .App {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 10rem 5rem;
+  padding: 2rem 5rem;
   font-size: 1.1rem;
+
   
   .Tasks, .Timer, .Notes{
     flex: 0 1 minmax(150px,30%);
   }
 
-  .timer-counter, .timer-btn--container{
-    text-align: center;
-  }
-
   @media (max-width: 977px){
-    padding: 5rem;
+    padding: 2rem;
   }
 
   @media (max-width: 779px){

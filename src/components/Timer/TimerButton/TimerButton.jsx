@@ -39,7 +39,7 @@ function TimerButton(props) {
           handleIcon()
         }
         {
-          (icon==='FaTimes') && ' Delete Pomodoros'
+          (icon==='FaTimes') && <span> Delete Pomodoros</span>
         }
       </button>
     </>

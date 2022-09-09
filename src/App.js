@@ -23,16 +23,19 @@ function App() {
 
   return (
     <GlobalContext.Provider value={globalContextValue}>
-      <div className="App">
-          <div id='T1'>
-            <TasksMain className="Tasks" />
-          </div>
-          <div id='T2'>
-            <TimerMain className="Timer" id="Timer-component"/>
-          </div>
-          <div id='T3'>
-            <NotesMain className="Notes" />
-          </div>
+      <div>
+          <h1>Viking Codes</h1><h1>Productivity Suite</h1>
+        <div className="App">
+            <div id='T1'>
+              <TasksMain className="Tasks" />
+            </div>
+            <div id='T2'>
+              <TimerMain className="Timer" id="Timer-component"/>
+            </div>
+            <div id='T3'>
+              <NotesMain className="Notes" />
+            </div>
+        </div>
       </div>
     </GlobalContext.Provider>
   );

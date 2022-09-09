@@ -1,5 +1,7 @@
+@use '../abstracts/colors' as *;
+
 .task{
-  border: 2px solid black;
+  border: 2px solid $accent-blue;
   border-radius: 5px;
   width: 15rem;
   padding-bottom: 1rem;
@@ -19,10 +21,11 @@
   }
 
   &[data-priority='true']{
-    border: 2px solid red;
+    border: 2px solid $red;
   }
 
   & .priority-task {
     font-weight: bold;
+    color: $red;
   }
 }

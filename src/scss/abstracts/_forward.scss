@@ -1,6 +1,10 @@
+//COLORSs
+@forward './colors';
+
 // COMPONENTS
 @forward '../components/taskForm';
 @forward '../components/task';
 @forward '../components/noteForm';
 @forward '../components/note';
 @forward '../components/button';
+@forward '../components/timer';

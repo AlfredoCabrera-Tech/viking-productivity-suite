@@ -50,7 +50,7 @@ function TasksList(props) {
 
   return (
     <div>
-      <p>You have accomplished {taskCounter} tasks today!</p>
+      <p>You have accomplished <b>{taskCounter}</b> tasks today!</p>
       <div className="btn-container">
         <button className={`btn btn-Reset`} onClick={resetCounter}>Reset Task Count</button>
       </div>

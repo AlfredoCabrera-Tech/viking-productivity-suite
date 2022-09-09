@@ -1,0 +1,46 @@
+@use '../abstracts/colors' as *;
+
+.timer-counter, .timer-btn--container{
+  text-align: center;
+}
+
+.timer-component__title{
+  color: $red;
+}
+
+.timer-counter{
+  
+  &-pomodoro{
+    font-size: 3rem;
+    text-align: center;
+    color: $red;
+  }
+  
+  &-break{
+    font-size: 3rem;
+    text-align: center;
+    color: $accent-blue;
+    
+  }
+  
+  &-long-break{
+    font-size: 3rem;
+    text-align: center;
+    color: $accent-blue;
+
+  }
+}
+
+.timer-mode{
+  &-pomodoro{
+    color: $red;
+  }
+
+  &-break{
+    color: $accent-blue;
+  }
+  
+  &-long-break{
+    color: $accent-blue;
+  }
+}

@@ -1,15 +1,22 @@
+@use '../abstracts/colors' as *;
+
+.tasks-component__title{
+  color: $red;
+}
+
 .task-form{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
 
-  &>input{
+  &>input,& textarea{
     margin-top: 0.5rem;
     border-radius: 5px;
     padding: 0.15rem 0.5rem;
     font: inherit;
     font-size: 1rem;
+    background-color: $secondary-light;
   }
 
   & label{

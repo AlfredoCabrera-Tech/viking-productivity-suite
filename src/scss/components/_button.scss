@@ -1,7 +1,31 @@
+@use '../abstracts/colors' as *;
+
 .btn{
+  padding: 0.25rem 0.45rem 0.35rem 0.45rem;
   border-radius: 5px;
   font: inherit;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin: 0.3rem;
   cursor: pointer;
+
+  color: $primary;
+  background-color: $secondary-light;
+  border-color: $primary;
+
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  transition: all 0.2s linear;
+  &:hover{
+    background-color: $primary;
+    border-color: $accent-blue;
+    color: $accent-blue;
+  }
+
+  &-reset-counter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

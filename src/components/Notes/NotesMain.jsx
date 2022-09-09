@@ -102,8 +102,7 @@ function NotesMain() {
               htmlFor="note-body">
               Note Body
             </label>
-            <input 
-              type="text" 
+            <textarea
               name="body" 
               id='note-body'
               onChange={handleChange} 
